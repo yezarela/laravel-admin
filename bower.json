@@ -1,0 +1,14 @@
+{
+  "name": "sppd",
+  "description": "",
+  "main": "",
+  "authors": [
+    "yezarela <yezarela@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "resolutions": {
+    "jquery": "^3.2.1"
+  }
+}
