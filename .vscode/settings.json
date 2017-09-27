@@ -1,1 +1,11 @@
-{}
+{
+  "editor.formatOnSave": false,
+  "editor.detectIndentation": false,
+  "editor.tabSize": 3,
+  "html.format.wrapAttributes": "force-aligned",
+  "html.validate.styles": true,
+  "emmet.syntaxProfiles": {
+    "php": "html"
+  },
+  "emmet.triggerExpansionOnTab": true
+}

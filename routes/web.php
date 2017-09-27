@@ -15,6 +15,19 @@ Route::get('/', function () {
     return view('laravel');
 });
 
+Route::get('/admin', function () {
+   //  if (Auth::guest()) {
+   //      return redirect('/');
+   //  } else {
+   //      if (Auth::user()->isAdmin()) {
+   //          return redirect('admin');
+   //      } else {
+   //          Auth::logout();
+   //      }
+   //  }
+    return view('pages.dashboard');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
