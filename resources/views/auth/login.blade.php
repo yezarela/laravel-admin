@@ -4,7 +4,7 @@
 
 <div class="login-box">
    <div class="login-logo">
-      <a href="../../index2.html"><b>{{ env('APP_NAME') }}</b> {{ env('APP_CODE') }}</a>
+      <a href="{{ route('/') }}"><b>{{ config('app.name') }}</b> {{ config('app.alias') }}</a>
    </div>
    <!-- /.login-logo -->
    <div class="login-box-body">

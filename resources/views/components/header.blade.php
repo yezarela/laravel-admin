@@ -1,11 +1,11 @@
 <header class="main-header">
 
    <!-- Logo -->
-   <a href="index2.html" class="logo">
+   <a href="{{ route('admin') }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini">{{ env('APP_CODE') }}</span>
+      <span class="logo-mini">{{ config('app.alias') }}</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>{{ env('APP_NAME') }}</b> {{ env('APP_CODE') }}</span>
+      <span class="logo-lg"><b>{{ config('app.name') }}</b> {{ config('app.alias') }}</span>
    </a>
 
    <!-- Header Navbar -->

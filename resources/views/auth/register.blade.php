@@ -5,7 +5,7 @@
 
 <div class="register-box">
    <div class="register-logo">
-      <a href="../../index2.html"><b>Admin</b>LTE</a>
+      <a href="{{ route('/') }}"><b>Admin</b>LTE</a>
    </div>
 
    <div class="register-box-body">

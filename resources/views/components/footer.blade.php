@@ -4,5 +4,5 @@
       Thanks for using this app
    </div>
    <!-- Default to the left -->
-   <strong>Copyright &copy; {{ date("Y") }} <a href="#">{{ env('APP_NAME') }}</a> .</strong> All rights reserved.
+   <strong>Copyright &copy; {{ date("Y") }} <a href="{{ route('admin') }}">{{ config('app.name') }}</a> .</strong> All rights reserved.
 </footer>

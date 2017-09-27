@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('laravel');
-});
+})->name('/');
 
 Route::get('/admin', function () {
    //  if (Auth::guest()) {
@@ -26,7 +26,7 @@ Route::get('/admin', function () {
    //      }
    //  }
     return view('pages.dashboard');
-});
+})->name('admin');
 
 Auth::routes();
 
