@@ -11,23 +11,51 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('laravel');
 })->name('/');
 
-Route::get('/admin', function () {
-   //  if (Auth::guest()) {
-   //      return redirect('/');
-   //  } else {
-   //      if (Auth::user()->isAdmin()) {
-   //          return redirect('admin');
-   //      } else {
-   //          Auth::logout();
-   //      }
-   //  }
-    return view('pages.dashboard');
-})->name('admin');
+Route::group(['prefix' => 'admin'], function () {
 
-Auth::routes();
+    Route::get('/', function () {
+         return view('pages.dashboard');
+    });
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::group(['namespace' => 'Settings'], function () {
+
+        Route::group(['prefix' => 'settings'], function () {
+
+            // Settings->users
+
+            Route::get('users', 'UsersController@index');
+
+            Route::get('users-data', 'UsersController@data');
+
+            Route::get('users/new', 'UsersController@new');
+
+            Route::get('users/edit/{id}', 'UsersController@edit');
+   
+            Route::get('users/delete/{id}', 'UsersController@delete');
+
+            Route::post('users/create', 'UsersController@create');
+
+            Route::post('users/update', 'UsersController@update');
+
+            // Settings->roles
+
+            Route::get('roles', 'RolesController@index');
+
+            Route::get('roles/new', 'RolesController@new');
+
+            Route::get('roles/edit/{id}', 'RolesController@edit');
+   
+            Route::get('roles/delete/{id}', 'RolesController@delete');
+
+            Route::post('roles/create', 'RolesController@create');
+
+            Route::post('roles/update', 'RolesController@update');
+        });
+    });
+});

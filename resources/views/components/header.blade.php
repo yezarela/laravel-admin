@@ -1,7 +1,7 @@
 <header class="main-header">
 
    <!-- Logo -->
-   <a href="{{ route('admin') }}" class="logo">
+   <a href="{{ url('admin') }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">{{ config('app.alias') }}</span>
       <!-- logo for regular state and mobile devices -->
@@ -49,7 +49,7 @@
             </li>
             <!-- Control Sidebar Toggle Button -->
             <li>
-               <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+               <a href="#" data-toggle="control-sidebar"><i class="fa fa-gear"></i></a>
             </li>
          </ul>
       </div>
