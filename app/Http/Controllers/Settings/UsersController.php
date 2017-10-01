@@ -25,11 +25,12 @@ class UsersController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function data(DataTables $datatables)
-    {
+    {    
         $builder = User::query()->select('id', 'name', 'email', 'created_at');
 
         return $datatables->eloquent($builder)
-                          ->rawColumns([1, 4])
+                          ->rawColumns([1, 5])
+                          ->addColumn('edit', '{{$id}}')
                           ->make(false);
     }
 }

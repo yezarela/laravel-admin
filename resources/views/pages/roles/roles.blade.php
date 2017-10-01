@@ -9,8 +9,8 @@
       <small>Optional description</small>
    </h1>
    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-      <li class="active">Here</li>
+      <li><a href="#"><i class="fa fa-gears"></i> Settings</a></li>
+      <li class="active">Roles</li>
    </ol>
 </section>
 
@@ -22,21 +22,34 @@
          <div class="box">
          <div class="box-header">
             <h3 class="box-title">All Roles</h3>
+            <div class="box-tools">
+                            <a href="{{ url('admin/settings/roles/new')}}" type="submit" class="btn btn-primary">New Role</a>
+
+                
+              </div>
          </div>
          <!-- /.box-header -->
          <div class="box-body">
             <table id="roles-table" class="table table-bordered table-hover">
                <thead>
                <tr>
-               <th>Id</th>
-               <th>Name</th>
+               <th>No</th>
+               <th width="150">Name</th>
+               <th>Permissions</th>
+               <th width="150">Actions</th>
                </tr>
                </thead>
                <tbody>
-               @foreach($permissions as $permission)
+               
+               @foreach($roles as $role)
                    <tr>
-                   <td>{{ $permission->id }}</td>
-                   <td>{{ $permission->name }}</td>
+                   <td>{{ $loop->iteration }}</td>
+                   <td>{{ $role->name }}</td>
+                   <td>{{ $role->all_permissions }}</td>
+                   <td>
+                     <a class="btn btn-success" href="{{ url('admin/settings/roles/edit/'.$role->id) }}">Edit</a>
+                     <a class="btn btn-danger" href="{{ url('admin/settings/roles/delete/'.$role->id) }}">Delete</a>
+                   </td>
                    </tr>
                @endforeach
                </tbody>
