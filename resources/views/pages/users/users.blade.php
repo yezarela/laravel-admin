@@ -5,8 +5,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
    <h1>
-      Users
-      <small>Optional description</small>
+      <a href="{{ url('admin/settings/users/new')}}" type="submit" class="btn btn-primary">Add User</a>
    </h1>
    <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-gears"></i> Settings</a></li>
@@ -22,6 +21,8 @@
          <div class="box">
          <div class="box-header">
             <h3 class="box-title">All Users</h3>
+            <div class="box-tools">
+            </div>
          </div>
          <!-- /.box-header -->
          <div class="box-body">
@@ -31,8 +32,8 @@
                <th>No</th>
                <th>Name</th>
                <th>Email</th>
-               <th>Created At</th>
-               <th>Actions</th>
+               <th>Role</th>
+               <th width="150">Actions</th>
                </tr>
                </thead>
               
@@ -66,7 +67,7 @@
                   {data: 0, name: 'id'},
                   {data: 1, name: 'name'},
                   {data: 2, name: 'email'},
-                  {data: 3, name: 'created_at'},
+                  {data: 3, name: 'role'},
                   {data: 4, name: 'actions'},
                ],
                columnDefs: [ {
@@ -74,9 +75,10 @@
                      orderable: false,
                      targets: 4,
                      render: function ( data, type, row, meta ) {
-                        return `<a class="btn btn-primary" href="{{ url('admin/settings/users/edit/${data}') }}">Edit</a>`;
+                        return `<a class="btn btn-success" href="{{ url('admin/settings/users/edit/${data}') }}">Edit</a>
+                        <a class="btn btn-danger" href="{{ url('admin/settings/users/delete/${data}') }}">Delete</a>`;
                      }
-               } ],
+               }],
                
          });
 

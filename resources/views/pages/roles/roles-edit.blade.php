@@ -18,10 +18,11 @@
 
    <!-- SELECT2 EXAMPLE -->
       <div class="box box-default">
-      {{Form::open(['url' => 'admin/settings/roles/create'])}}
+      {{Form::open(['url' => 'admin/settings/roles/update'])}}
+            {{Form::hidden('id', $role->id)}}                
 
         <div class="box-header with-border">
-          <h3 class="box-title">New Role</h3>
+          <h3 class="box-title">Edit Role</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -29,7 +30,7 @@
             <div class="col-md-6">
               <div class="form-group">
                   <label>Role Name</label>
-                  <input type="text" class="form-control" required name="role_name" placeholder="Enter Role name">
+                  <input type="text" class="form-control" required name="role_name" value="{{ $role->name }}" placeholder="Enter Role name">
                 </div>
               <!-- /.form-group -->
             </div>
@@ -45,7 +46,7 @@
                 @foreach($group['permissions'] as $permission)
                 <div style="display:block;margin-left:20px;">
                   <label>
-                     <input type="checkbox" value="{{$permission->name}}" name="permissions[]" class="minimal {{$group['group_name']}}">&nbsp; {{$permission->name}}
+                     <input type="checkbox" @if($role->hasPermissionTo($permission)) checked @endif value="{{$permission->name}}" name="permissions[]" class="minimal {{$group['group_name']}}">&nbsp; {{$permission->name}}
                   </label>
                 </div>
                 @endforeach

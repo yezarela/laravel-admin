@@ -79,8 +79,8 @@ class RegisterController extends Controller
      * @param  mixed  $user
      * @return mixed
      */
-   //  protected function registered(Request $request, $user)
-   //  {
-        
-   //  }
+    protected function registered(Request $request, $user)
+    {
+        $user->assignRole('editor');
+    }
 }

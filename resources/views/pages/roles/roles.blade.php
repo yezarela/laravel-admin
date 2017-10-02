@@ -5,8 +5,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
    <h1>
-      Roles
-      <small>Optional description</small>
+     <a href="{{ url('admin/settings/roles/new')}}" type="submit" class="btn btn-primary">Add Role</a>
    </h1>
    <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-gears"></i> Settings</a></li>
@@ -23,10 +22,7 @@
          <div class="box-header">
             <h3 class="box-title">All Roles</h3>
             <div class="box-tools">
-                            <a href="{{ url('admin/settings/roles/new')}}" type="submit" class="btn btn-primary">New Role</a>
-
-                
-              </div>
+            </div>
          </div>
          <!-- /.box-header -->
          <div class="box-body">
