@@ -31,8 +31,10 @@
       <ul class="sidebar-menu" data-widget="tree">
          <li class="header">HEADER</li>
          <li class="{{{ (Request::is('admin') ? 'active' : '') }}}"><a href="{{ url('admin') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+         <li class="{{{ (Request::is('admin/pegawai') ? 'active' : '') }}}"><a href="{{ url('admin/pegawai') }}"><i class="fa fa-users"></i> <span>Pegawai</span></a></li>
+         @can('read_users')
          <li class="treeview {{{ (Request::is('admin/settings/*') ? 'active' : '') }}}">
-            <a href="#"><i class="fa fa-gears"></i> <span>Settings</span>
+            <a href="#"><i class="fa fa-gears"></i> <span>Administrator</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -42,6 +44,7 @@
                <li class="{{{ ((Request::is('admin/settings/roles/*') || Request::is('admin/settings/roles')) ? 'active' : '') }}}"><a href="{{ url('admin/settings/roles') }}"><i class="fa fa-circle-o"></i> Roles</a></li>
             </ul>
          </li>
+         @endcan
       </ul>
       <!-- /.sidebar-menu -->
    </section>

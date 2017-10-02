@@ -9,6 +9,8 @@ use Yajra\DataTables\DataTables;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Log;
 use App\User;
+use Auth;
+
 
 class UsersController extends Controller
 {
@@ -111,13 +113,18 @@ class UsersController extends Controller
     public function data(DataTables $datatables)
     {
         $builder = User::query()->select('id', 'name', 'email');
+        $current_user = Auth::user();
 
-        return $datatables->eloquent($builder)
-                          ->rawColumns([1, 5])
-                           ->addColumn('role', function (User $user) {
-                               return ucfirst($user->getRoleNames()[0]);
-                           })
-                          ->addColumn('edit', '{{$id}}')
-                          ->make(false);
+        $datatable = $datatables->eloquent($builder)
+                        ->rawColumns([1, 5])
+                        ->addColumn('role', function (User $user) {
+                            return ucfirst($user->getRoleNames()[0]);
+                        });    
+
+        if ($current_user->can('delete_users','update_users')) {
+            $datatable = $datatable->addColumn('edit', '{{$id}}');
+        }
+
+        return $datatable->make(false);
     }
 }

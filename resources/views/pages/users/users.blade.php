@@ -5,7 +5,9 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
    <h1>
+    @can('create_users')
       <a href="{{ url('admin/settings/users/new')}}" type="submit" class="btn btn-primary">Add User</a>
+    @endcan
    </h1>
    <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-gears"></i> Settings</a></li>
@@ -75,8 +77,8 @@
                      orderable: false,
                      targets: 4,
                      render: function ( data, type, row, meta ) {
-                        return `<a class="btn btn-success" href="{{ url('admin/settings/users/edit/${data}') }}">Edit</a>
-                        <a class="btn btn-danger" href="{{ url('admin/settings/users/delete/${data}') }}">Delete</a>`;
+                        return `@can('update_users')<a class="btn btn-success" href="{{ url('admin/settings/users/edit/${data}') }}">Edit</a>@endcan
+                        @can('delete_users')<a class="btn btn-danger" href="{{ url('admin/settings/users/delete/${data}') }}">Delete</a>@endcan`;
                      }
                }],
                

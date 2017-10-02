@@ -17,33 +17,38 @@ Route::get('/', function () {
     return view('laravel');
 })->name('/');
 
-// Route::group(['middleware' => ['role:admin']], function () {
-
+Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'admin'], function () {
-
         Route::get('/', function () {
-             return view('pages.dashboard');
+            return view('pages.dashboard');
         });
 
         Route::group(['namespace' => 'Settings'], function () {
-
             Route::group(['prefix' => 'settings'], function () {
 
                 // Settings->users
 
-                Route::get('users', 'UsersController@index');
+                Route::group(['middleware' => ['permission:read_users']], function () {
+                    Route::get('users', 'UsersController@index');
 
-                Route::get('users-data', 'UsersController@data');
+                    Route::get('users-data', 'UsersController@data');
+                });
 
-                Route::get('users/new', 'UsersController@new');
+                Route::group(['middleware' => ['permission:create_users']], function () {
+                    Route::get('users/new', 'UsersController@new');
 
-                Route::get('users/edit/{id}', 'UsersController@edit');
+                    Route::post('users/create', 'UsersController@create');
+                });
+
+                Route::group(['middleware' => ['permission:update_users']], function () {
+                    Route::get('users/edit/{id}', 'UsersController@edit');
    
-                Route::get('users/delete/{id}', 'UsersController@delete');
+                    Route::post('users/update', 'UsersController@update');
+                });
 
-                Route::post('users/create', 'UsersController@create');
-
-                Route::post('users/update', 'UsersController@update');
+                Route::group(['middleware' => ['permission:delete_users']], function () {
+                    Route::get('users/delete/{id}', 'UsersController@delete');
+                });
 
                 // Settings->roles
 
@@ -61,4 +66,4 @@ Route::get('/', function () {
             });
         });
     });
-// });
+});
