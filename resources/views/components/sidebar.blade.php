@@ -9,7 +9,7 @@
             <img src="{{ asset('assets/vendor/admin-lte/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
          </div>
          <div class="pull-left info">
-            <p>Alexander Pierce</p>
+            <p>{{ Auth::user()->name }}</p>
             <!-- Status -->
             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
          </div>
@@ -31,7 +31,6 @@
       <ul class="sidebar-menu" data-widget="tree">
          <li class="header">HEADER</li>
          <li class="{{{ (Request::is('admin') ? 'active' : '') }}}"><a href="{{ url('admin') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-         <li class="{{{ (Request::is('admin/pegawai') ? 'active' : '') }}}"><a href="{{ url('admin/pegawai') }}"><i class="fa fa-users"></i> <span>Pegawai</span></a></li>
          @can('read_users')
          <li class="treeview {{{ (Request::is('admin/settings/*') ? 'active' : '') }}}">
             <a href="#"><i class="fa fa-gears"></i> <span>Administrator</span>

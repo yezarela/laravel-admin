@@ -92,30 +92,18 @@
     
     })
 
-    $('#manage-users').on('ifChecked', function(event){
-       $('.users').iCheck('check');
+    @foreach($groups as $group)
+
+    $('#manage-{{$group["group_name"]}}').on('ifUnchecked', function(event){
+       $('.{{$group["group_name"]}}').iCheck('uncheck');
     });
 
-    $('#manage-users').on('ifUnchecked', function(event){
-       $('.users').iCheck('uncheck');
+    $('#manage-{{$group["group_name"]}}').on('ifChecked', function(event){
+       $('.{{$group["group_name"]}}').iCheck('check');
     });
 
-    $('#manage-pegawai').on('ifChecked', function(event){
-       $('.pegawai').iCheck('check');
-    });
+    @endforeach
 
-    $('#manage-pegawai').on('ifUnchecked', function(event){
-       $('.pegawai').iCheck('uncheck');
-    });
-
-    $('#manage-sppd').on('ifChecked', function(event){
-       $('.sppd').iCheck('check');
-    });
-
-    $('#manage-sppd').on('ifUnchecked', function(event){
-       $('.sppd').iCheck('uncheck');
-    });
-   
   })
 </script>
 @endsection

@@ -26,7 +26,7 @@
                   <!-- The user image in the navbar-->
                   <img src="{{ asset('assets/vendor/admin-lte/dist/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                  <span class="hidden-xs">Alexander Pierce</span>
+                  <span class="hidden-xs">{{ Auth::user()->name }}</span>
                </a>
                <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
@@ -34,15 +34,22 @@
                      <img src="{{ asset('assets/vendor/admin-lte/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
 
                      <p>
-                        Alexander Pierce - Web Developer
-                        <small>Member since Nov. 2012</small>
+                        {{ Auth::user()->name }} - {{ ucfirst(Auth::user()->getRoleNames()[0]) }}
+                        <small>Registered on {{ Auth::user()->created_at->format('d M, Y') }}</small>
                      </p>
                   </li>
 
                   <!-- Menu Footer-->
                   <li class="user-footer">
                      <div class="pull-right">
-                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                        </form>
+                        <a class="btn btn-default btn-flat" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                        Logout
+                        </a>
                      </div>
                   </li>
                </ul>
