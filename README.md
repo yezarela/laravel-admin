@@ -1,4 +1,4 @@
-# SPPD-APP
+# Laravel-Starter
 
 ## Prerequisites
 - PHP CLI
