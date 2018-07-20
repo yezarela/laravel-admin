@@ -1,4 +1,5 @@
 # Laravel-Starter
+Quick laravel starter for admin apps with [Admin-LTE](https://github.com/almasaeed2010/AdminLTE), [Laravel-permission](https://github.com/spatie/laravel-permission) and [Laravel-datatables](https://github.com/yajra/laravel-datatables)
 
 ## Prerequisites
 - PHP CLI
