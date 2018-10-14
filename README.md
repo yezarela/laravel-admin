@@ -32,6 +32,14 @@ php artisan serve
 git push heroku master
 ```
 
+## Demo 
+[http://laravel-starter.herokuapp.com](http://laravel-starter.herokuapp.com)
+```
+Demo user: 
+- email: admin@email.com
+- pass : admin12345
+```
+
 ## FAQ
 - How to set heroku env variables ? `heroku config:set ENV_VAR=value`
 - How to run command on heroku ? `heroku run php artisan migrate`
