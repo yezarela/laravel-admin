@@ -2,9 +2,9 @@
 Quick laravel starter for admin apps with [Admin-LTE](https://github.com/almasaeed2010/AdminLTE), [Laravel-permission](https://github.com/spatie/laravel-permission) and [Laravel-datatables](https://github.com/yajra/laravel-datatables)
 
 ## Prerequisites
-- PHP CLI
-- [Composer]("https://getcomposer.org/download/")
-- [Heroku CLI]("https://devcenter.heroku.com/articles/heroku-cli")
+- [PHP](http://www.php.net) with configured CLI
+- [Composer](https://getcomposer.org/download)
+- [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 
 ## Development
 
